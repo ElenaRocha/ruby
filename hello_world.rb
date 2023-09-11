@@ -166,3 +166,56 @@ Stacy Brown-Philpot is the chief operating officer of TaskRabbit, where she’s 
 STR
 
 $words = input.split(/\s+|\.|\,/).select { |w| !w.empty? } # This uses a Regular Expression
+
+def display(array)
+  array.each do |elem|
+    puts elem
+  end
+end
+
+display($words)
+
+sorted = $words.sort
+
+puts "\n\nSorted\n"
+display(sorted)
+
+puts "\n\nSorted Reverse\n"
+display(sorted.reverse)
+
+sorted.delete_at(0)
+sorted << 'myword'
+
+display(sorted.sort)
+
+def frequency(word)
+  arr = $words.select do |sample|
+    word == sample
+  end
+  arr.size
+end
+
+frequencies = $words.uniq.map do |word|
+  [ word, frequency(word) ]
+end
+
+sorted = frequencies.sort do |a, b|
+  b[-1] <=> a[-1]
+end
+
+sorted.each_with_index do |pair, index|
+  puts "#{index + 1}: #{pair[0]} #{pair[-1]} occurrences"
+end
+
+#sumatorio
+result = 0
+1.upto(100) do |num|
+  result += num
+end
+
+puts result
+
+arr = %w(jane john mary kate elle simon dan kumar wei charlotte)
+3.times do
+  puts arr.delete_at(0)
+end
