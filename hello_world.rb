@@ -1,10 +1,10 @@
 # #ejercicio chatbot
-# puts "Hola, minombre es Ruby"
+# puts "Hola, mi nombre es Ruby"
 # puts "¿Cuál es tu nombre?"
 # name = gets.chomp
-# puts "Hola #{name}, encantado de conocerte. ¿Quieres saber cuántos años tengo o dónde he nacido? Si no, adios!"
+# puts "Hola #{name}, encantado de conocerte. ¿Quieres saber cuántos años tengo o dónde he nacido? Si no, adiós!"
 
-# while (question = gets.chomp) != 'Adios!'
+# while (question = gets.chomp) != 'Adiós!'
 #   if question == '¿Cuántos años tienes?'
 #     puts "Tengo 20 años"
 #   elsif question == '¿Dónde naciste?'
@@ -22,19 +22,19 @@
 # def temperatura(temp)
 #   case
 #   when temp < 0
-#       "it's freezing!"
+#       "Hace mucho frío!"
 #     when temp >= 0 && temp < 15
-#       "a bit chilly"
+#       "Hace frío"
 #     when temp >= 15 && temp < 25
-#       "pleasant weather"
+#       "Hace buen tiempo"
 #     when temp > 25 && temp < 40
-#       "so hot!"
+#       "Hace mucho calor!"
 #   else
-#     "we're all gonna die!"
+#     "Vamos a morir!"
 #   end
 # end
 
-# puts sensacion_del_dia('nublado')
+# puts sensacion_del_dia('soleado')
 # puts temperatura(20)
 
 
@@ -129,4 +129,93 @@
 
 
 
-# práctica
+# # práctica ragos
+# def incluido?(rango, numero)
+#   numero >= rango.begin && numero <= rango.end
+# end
+
+# puts incluido?(10.0..20.0, 12.0)
+
+# # def multiplos()
+# #   (7..140).each do |n|
+# #       if n%7 == 0
+# #         print "#{n}, "
+# #     end
+# #   end
+# # end
+
+# def multiplos ()
+#   1.upto(20) do |n|
+#     puts n * 7
+# end 
+
+# multiplos()
+
+# def comparador(range1, range2)
+#   if range1.begin < range2.begin
+#     if range1.end < range2.begin
+#       return nil
+#     else
+#       return (range2.begin..range1.end)
+#     end
+#   else
+#     if range2.end < range1.begin
+#       return nil
+#     else
+#       return (range1.begin..range2.end)
+#     end
+#   end
+# end
+
+# print comparador(1..7, 3..9)
+
+
+
+# #práctica con hasmap
+# balances = {
+#   'Dan'   => 1000,
+#   'Jess'  => 1200,
+#   'Bryan' => 1500,
+#   'Kath'  => 2200
+# }
+
+# sum = 0
+# balances.each_pair do |name, balance|
+#   sum += balance
+#   puts "#{name} has $#{balance}"
+# end
+
+# puts "We have combined $#{sum}"
+
+# def sort(hash)
+#   sorted = {}
+#   hash.keys.sort.reverse.each do |key|
+#     sorted[key] = hash[key]
+#   end
+#   return sorted
+# end
+
+# puts sort(drivers)
+
+
+
+#práctica símbolos
+# users = [
+#   { name: 'Dan', email: 'dan@coderdan.co' },
+#   { name: 'Lauren', email: 'lauren@laurenneko.com' },
+#   { name: 'Steve', email: 'steve@apple.com' }
+# ]
+
+# user = users.find do |user|
+#   user[:name] == 'Dan'
+# end
+
+# if user
+#   puts user[:email]
+# else
+#   puts "No user found"
+# end
+
+
+
+#práctica
