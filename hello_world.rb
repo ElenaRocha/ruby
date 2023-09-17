@@ -88,8 +88,8 @@
 # $words = input.split(/\s+|\.|\,/).select { |w| !w.empty? } # This uses a Regular Expression
 
 # def display(array)
-#   array.each do |elem|
-#     puts elem
+#   array.each do |element|
+#     puts element
 #   end
 # end
 
@@ -129,7 +129,7 @@
 
 
 
-# # práctica ragos
+# # práctica rangos
 # def incluido?(rango, numero)
 #   numero >= rango.begin && numero <= rango.end
 # end
@@ -172,30 +172,30 @@
 
 
 # #práctica con hasmap
-# balances = {
-#   'Dan'   => 1000,
-#   'Jess'  => 1200,
+# cuentas_bancarias = {
+#   'Danile'   => 1000,
+#   'Jessica'  => 1200,
 #   'Bryan' => 1500,
-#   'Kath'  => 2200
+#   'Katherine'  => 2200
 # }
 
-# sum = 0
-# balances.each_pair do |name, balance|
-#   sum += balance
-#   puts "#{name} has $#{balance}"
+# suma = 0
+# cuentas_bancarias.each_pair do |nombre, ahorros|
+#   suma += ahorros
+#   puts "#{nombre} tiene $#{ahorros}"
 # end
 
-# puts "We have combined $#{sum}"
+# puts "En total disponemos de #{suma}€"
 
-# def sort(hash)
-#   sorted = {}
+# def ordenar(hash)
+#   orden = {}
 #   hash.keys.sort.reverse.each do |key|
-#     sorted[key] = hash[key]
+#     orden[key] = hash[key]
 #   end
-#   return sorted
+#   return orden
 # end
 
-# puts sort(drivers)
+# puts ordenar(cuentas_bancarias)
 
 
 
@@ -245,3 +245,107 @@
 # user = User.new('Elvis', 'elvis@presley.com', 55)
 # puts user
 # p user
+
+# #práctica tiempo
+# # 24 hour time
+# def print_time24
+#   puts Time.now.strftime("%H:%M")
+# end
+
+# # Regular time
+# def print_time12
+#   puts Time.now.strftime("%H:%I%P")
+# end
+
+# class Clock
+#   def time_string
+#     Time.now.strftime("%H:%M:%S on %B %d, %Y")
+#   end
+
+#   def run
+#     loop do
+#       print "\r#{time_string}"
+#       sleep 1
+#     end
+#   end
+# end
+
+# clock = Clock.new
+# clock.run
+
+
+
+# mini proyecto: vamos a organizar un proyecto. Primero estableceremos sus miembros (string) y un presupuesto. Luego dividiremos los miembros en clases (Porject Manager, desarrollador y diseñador). Cada una de estas clases tendrá como atributos el nombre y un salario, y te devolverá la descripción de su rol. Después incluiremos un método que nos indique el salario por día dividiendo entre 210. Ahora instanciaremos un PM, 3 desarrolladores y un diseñador, y calcularemos el presupuesto total para el salario de todo el equipo. Por último implementaremos un método que muestre a todos los miembros del equipo ordenados por salario de manera ascendente.
+#El último ejercicio es simplificar el código mediante el concepto de herencia
+
+# class Member
+#   attr_accessor :name, :salary
+
+#   def initialize(name, salary)
+#     @name = name
+#     @salary = salary
+#   end
+
+#   def day_rate
+#     salary.to_f / 210
+#   end
+
+#   def to_s
+#     "#{role} #{self.name} #{day_rate}"
+#     role
+#   end
+# end
+
+# class ProjectManager < Member
+#   def role
+#     "Project Manager"
+#   end
+# end
+
+# class Developer < Member
+#   def role
+#     "Developer"
+#   end
+# end
+
+# class Designer < Member
+#   def role
+#     "Designer"
+#   end
+# end
+
+# class Project
+#   attr_accessor :name, :budget
+#   attr_reader :members
+
+#   def initialize(name, budget)
+#     @name = name
+#     @budget = budget
+#     @members = []
+#   end
+
+#   def total_dayrate
+#     sum = 0
+#     @members.each do |member|
+#       sum += member.day_rate
+#     end
+#     sum
+#   end
+
+#   def sorted_members
+#     @members.sort do |a,b|
+#       a.day_rate <=> b.day_rate
+#     end
+#   end
+# end
+
+# project = Project.new("Cafe Website", 5000)
+# project.members << ProjectManager.new('Dan', 100000)
+# project.members << Developer.new('Robin', 80000)
+# project.members << Developer.new('Jill', 80000)
+# project.members << Designer.new('James', 75000)
+
+# puts project.members
+# puts project.total_dayrate
+# #puts "Sorted by Day Rate"
+# #puts project.sorted_members
