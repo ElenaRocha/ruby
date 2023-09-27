@@ -280,173 +280,73 @@
 # mini proyecto: vamos a organizar un proyecto. Primero estableceremos sus miembros (string) y un presupuesto. Luego dividiremos los miembros en clases (Porject Manager, desarrollador y diseñador). Cada una de estas clases tendrá como atributos el nombre y un salario, y te devolverá la descripción de su rol. Después incluiremos un método que nos indique el salario por día dividiendo entre 210. Ahora instanciaremos un PM, 3 desarrolladores y un diseñador, y calcularemos el presupuesto total para el salario de todo el equipo. Por último implementaremos un método que muestre a todos los miembros del equipo ordenados por salario de manera ascendente.
 #El último ejercicio es simplificar el código mediante el concepto de herencia
 
-# class Member
-#   attr_accessor :name, :salary
-
-#   def initialize(name, salary)
-#     @name = name
-#     @salary = salary
-#   end
-
-#   def day_rate
-#     salary.to_f / 210
-#   end
-
-#   def to_s
-#     "#{role} #{self.name} #{day_rate}"
-#     role
-#   end
-# end
-
-# class ProjectManager < Member
-#   def role
-#     "Project Manager"
-#   end
-# end
-
-# class Developer < Member
-#   def role
-#     "Developer"
-#   end
-# end
-
-# class Designer < Member
-#   def role
-#     "Designer"
-#   end
-# end
-
-# class Project
-#   attr_accessor :name, :budget
-#   attr_reader :members
-
-#   def initialize(name, budget)
-#     @name = name
-#     @budget = budget
-#     @members = []
-#   end
-
-#   def total_dayrate
-#     sum = 0
-#     @members.each do |member|
-#       sum += member.day_rate
+# class Miembro
+#     attr_accessor :nombre, :salario
+  
+#     def initialize(nombre, salario)
+#       @nombre = nombre
+#       @salario = salario
 #     end
-#     sum
-#   end
-
-#   def sorted_members
-#     @members.sort do |a,b|
-#       a.day_rate <=> b.day_rate
+  
+#     def tarifa_diaria
+#       salario.to_f / 210
+#     end
+  
+#     def to_s
+#       "#{role} #{self.nombre} #{tarifa_diaria}"
+#       role
 #     end
 #   end
-# end
-
-# project = Project.new("Cafe Website", 5000)
-# project.members << ProjectManager.new('Dan', 100000)
-# project.members << Developer.new('Robin', 80000)
-# project.members << Developer.new('Jill', 80000)
-# project.members << Designer.new('James', 75000)
-
-# puts project.members
-# puts project.total_dayrate
-# #puts "Sorted by Day Rate"
-# #puts project.sorted_members
-
-#1. Dado un número cualquiera, realizar la suma factorial de todos los números hacia abajo hasta el 1
-
-def suma_factorial(numero)
-suma = 0
-valores = []
-factorial = 0
-
-(1..numero).each do | n |
-#puts "El resultado de sumar #{n} + #{suma} = "
-suma += n
-#puts suma
-#puts "y la lista de valores #{valores} aumenta al añadir #{suma}"
-valores << suma
-end 
-
-valores.each do |valor|
-#puts "Estoy sumando #{factorial} + #{valor}"
-factorial += valor
-end
-
-puts "El factorial de #{numero} es #{factorial}"
-
-return suma
-end
-
-print ("¿De qué número quieres calcular el factorial? ")
-
-numero = gets.chomp.to_i
-
-suma_factorial(numero)
-
-#Mi primero solución, que da el resultado pero no sigue el camino indicado
-def suma_factorial (numero)
-
-factorial = 1
-
-(1..numero).each do |n|
-factorial = factorial * n
-end
-
-puts ("El factorial de #{numero} es #{factorial}")
-
-end
-
-print ("¿De qué número quieres calcular el factorial? ")
-
-numero = gets.chomp.to_i
-
-suma_factorial(numero)
-
-
-# #2. Dado un array y el número de divisiones deseado, sin utilizar ninguna función avanzada de arrays, partir el array en ese número de divisiones ordenadamente. Si no es divisible la suma de elementos y el número de subdivisiones, dejar a nil los últimos registros
-
-# array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n"]
-# num_subdivisiones = 3
-
-# def divisor(array, num_subdivisiones)
-# matriz = Array.new(num_subdivisiones){[]}
-# #matriz = Array.new(num_subdivisiones, [])
-# # #con esta solución los arrays dentro del array son el mismo objeto con el mismo id, así que no fucniona
-
-# num_elementos = array.size
-# num_elementos_subdiv = (num_elementos.to_f/num_subdivisiones.to_f).ceil
-
-# diferencia = num_elementos%num_subdivisiones
-# cantidad_nils = num_subdivisiones - diferencia
-
-# if diferencia != 0
-# cantidad_nils.times do
-# array << nil
-# end
-# end
-
-# # if diferencia == 1
-# # array << nil << nil
-# # elsif diferencia == 2
-# # array << nil
-# # end
-# array.each_with_index do |element, index|
-# modulo = index%num_subdivisiones
-# matriz[modulo] << element
-# end
-# # matriz.each do |a|
-# # if a.size != num_elementos_subdiv
-# # a << nil
-# # end
-# # end
-
-# matriz.each do |a|
-# puts a.inspect
-# end
-# end
-
-# divisor(array, num_subdivisiones)
-
-# numero = 942.to_s.split("")
-# puts numero
-# puts numero.class
+  
+#   class JefeDeProyecto < Miembro
+#     def role
+#       "Jefe de Proyecto"
+#     end
+#   end
+  
+#   class Desarrollador < Miembro
+#     def role
+#       "Desarrollador"
+#     end
+#   end
+  
+#   class Disenador < Miembro
+#     def role
+#       "Diseñador"
+#     end
+#   end
+  
+#   class Proyecto
+#     attr_accessor :nombre, :presupuesto
+#     attr_reader :Miembros
+  
+#     def initialize(nombre, presupuesto)
+#       @nombre = nombre
+#       @presupuesto = presupuesto
+#       @Miembros = []
+#     end
+  
+#     def tarifa_diaria_total
+#       sum = 0
+#       @Miembros.each do |Miembro|
+#         sum += Miembro.tarifa_diaria
+#       end
+#       sum
+#     end
+  
+#     def sorted_Miembros
+#       @Miembros.sort do |a,b|
+#         a.tarifa_diaria <=> b.tarifa_diaria
+#       end
+#     end
+#   end
+  
+#   Proyecto = Proyecto.new("Cafe Website", 5000)
+#   Proyecto.Miembros << JefeDeProyecto.new('Andrés', 100000)
+#   Proyecto.Miembros << Desarrollador.new('Laura', 80000)
+#   Proyecto.Miembros << Desarrollador.new('Juan', 80000)
+#   Proyecto.Miembros << Disenador.new('Jaime', 75000)
+  
+#   puts Proyecto.Miembros
+#   puts Proyecto.tarifa_diaria_total
+#   puts Proyecto.sorted_Miembros
