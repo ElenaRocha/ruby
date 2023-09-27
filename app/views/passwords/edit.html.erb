@@ -1,0 +1,24 @@
+<h1>Edit password</h1>
+
+<%=  form_with model: Current.user, url: edit_password_path do |form| %>
+    <!--esto puede ser una alerta genérica que se utilice en cualquier apartado-->
+    <% if form.object.errors.any? %>
+        <div class="alert alert-danger">
+            <% form.object.errors.full_messages.each do |message| %>
+                <div> <%= message %> </div>
+            <% end %>
+        </div>
+    <% end %>
+
+    <div class="mb-3">
+        <%= form.label :password %>
+        <%= form.password_field :password, placeholder: "******", class: "form-control" %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :password_confirmation %>
+        <%= form.password_field :password_confirmation, placeholder: "******", class: "form-control" %>
+    </div>
+    <div class="mb-3">
+        <%= form.submit "Update password", class: "btn btn-primary" %>
+    </div>
+<% end %>
