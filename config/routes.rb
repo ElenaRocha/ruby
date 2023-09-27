@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   delete "loggout", to: "sessions#destroy"
 
+  get "/auth/twitter/callback", to: "omniauth_callbacks#twitter"
+
   root to: "main#index"
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

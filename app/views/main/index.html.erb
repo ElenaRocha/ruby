@@ -2,7 +2,4 @@
     <h1>Welcome to scheduled tweets</h1>    
 </div>
 
-<%# <% if Current.user %> 
-    <%# <p> Logged in as: <%= Current.user.email %> </p> 
-    <%# <%= button_to "Loggout", loggout_path, method: :delete%> 
-<%# <% end %> 
+<%= button_to "Connect Twitter", "/auth/twitter", method: :post, class: "btn btn-primary" %>
